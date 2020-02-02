@@ -8,6 +8,8 @@ public class PickUpper : MonoBehaviour
     public bool stay;
     public bool exit;
 
+    ItemType heldItemID = ItemType.None;
+
     private bool holdsItem = false;
 
     void Update()
@@ -16,7 +18,7 @@ public class PickUpper : MonoBehaviour
         {
             Collider[] colliders;
             colliders = Physics.OverlapSphere(transform.position, 0.25f);
-            print(colliders.Length);
+                //print(colliders.Length);
 
 
             if (holdsItem)
@@ -25,9 +27,10 @@ public class PickUpper : MonoBehaviour
                 {
                     if (c.GetComponent<Receiver>())
                     {
-                        print("On veut donner lobjet au receiver");
+                            //print("On veut donner lobjet au receiver");
                         // CASE 1 : Receiver wants Item -> Give Item to receiver
-                        if (c.GetComponent<Receiver>().ReceiveItem())
+
+                        if (c.GetComponent<Receiver>().ReceiveItem(heldItemID))
                         {
                             Destroy(transform.GetChild(0).gameObject);
                             holdsItem = false;
@@ -42,7 +45,7 @@ public class PickUpper : MonoBehaviour
 
                 // CASE 3 : No receiver found, Drop Item
                 {
-                    print("wanna drop");
+                        //print("wanna drop");
                     //holditem to false
                     Transform heldItem = transform.GetChild(0);
                     heldItem.transform.localPosition = new Vector3(0, -0.25f, -1f);
@@ -56,12 +59,12 @@ public class PickUpper : MonoBehaviour
                     heldItem.GetComponent<BoxCollider>().enabled = true;
                     heldItem.GetComponent<Rigidbody>().isKinematic = false;
 
-                    print(gameObject.name + " Drop Item");
+                        //print(gameObject.name + " Drop Item");
                 }
             }
             else
             {
-                // no Item, try to pickup
+                // CASE 4 : no Item, try to pickup
                 foreach (Collider c in colliders)
                 {
                     if (c.GetComponent<Item>())
@@ -70,8 +73,10 @@ public class PickUpper : MonoBehaviour
                         c.GetComponent<Rigidbody>().isKinematic = true;
 
 
-                        print(c.name + " Get Item");
+                            //print(c.name + " Get Item");
                         holdsItem = true;
+                        //what is held?
+                        heldItemID = c.GetComponent<Item>().ItemID;
                         c.transform.parent = gameObject.transform;
                         c.transform.localPosition = new Vector3(0, 0.75f, 0);
                         c.GetComponent<BoxCollider>().enabled = false;
@@ -79,49 +84,7 @@ public class PickUpper : MonoBehaviour
                     }
                 }
             }
-            
-            
-
-            print("No action taken");
-
-                    
+                //print("No action taken");  
         }
-       
-        /*
-        
-        -Si on appuie sur e
-            -1) on check si on a un objet
-                -On check si on trigger un bot
-                  -  si oui, on lui donne le shit
-
-                  -  Si non, on drop
-
-          -  on check si on est dans le trigger dun objet
-             -   si oui, on le grab
-
-
-
-         * */
     }
-    //void OnCollisionStay(Collision collision)
-    //{
-    //    if (holdsItem == true && Input.GetKeyDown(KeyCode.E))
-    //    {
-    //        if (collision.gameObject.CompareTag("Floor"))
-    //        {
-    //            //holditem to false
-    //            Transform heldItem = transform.GetChild(0);
-    //            heldItem.transform.localPosition = new Vector3(0, -0.25f, 1f);
-
-    //            // un-parent the item
-    //            heldItem.transform.parent = null;
-
-    //            holdsItem = false;
-
-    //            // reenable colision component on item
-    //            heldItem.GetComponent<BoxCollider>().enabled = true;
-    //            print(gameObject.name + " Drop Item");
-    //        }
-    //    }
-    //}
 }
