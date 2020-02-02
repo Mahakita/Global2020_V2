@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MI_Wall03
+  m_Name: M_BasicEmissive
   m_Shader: {fileID: 4800000, guid: e95177b31ca4ecc489091018676db98c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -36,12 +36,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ColorIntensity: 0.49
+    - _ColorIntensity: 0.1
     - _Cutoff: 0.5
-    - _EmissiveIntensity: 0.01
-    - _Float0: 1
+    - _EmissiveIntensity: 0
     - _Opacity: 0
-    - _OpacityINtensity: 1
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 0.7924528, g: 0.056069765, b: 0.5845329, a: 0}
+    - _Color: {r: 0.07062123, g: 0.2493143, b: 0.6509434, a: 0}
