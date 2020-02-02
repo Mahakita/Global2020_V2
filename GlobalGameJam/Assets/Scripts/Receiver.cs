@@ -6,6 +6,7 @@ public class Receiver : MonoBehaviour
 {
     public bool isBlocked;
     public bool wantsItem = false;
+    public ItemType itemDesired = ItemType.None;
 
     private IEnumerator coroutine;
     public float TempsMin = 15f;
@@ -35,34 +36,49 @@ public class Receiver : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         //print("Coroutine ended: " + Time.time + " seconds");
         // Wants Item:
-        if (wantsItem != true)
+        if (wantsItem == false)
         {
             wantsItem = true;
             myRenderer.material = wantMat;
         }
     }
-
+    //is item desired?
+    //public bool isItemDesired()
+    //{
+    //    if (heldItem == itemDesired)
+    //    {
+    //        ReceiveItem();
+    //    }
+    //}
    
     //receive Item will return a bool
-    public bool ReceiveItem()
+    public bool ReceiveItem(ItemType itemID)
     {
         // if wants item 
         if(wantsItem == true)
         {
-            // set want item = false
-            wantsItem = false;
-            // set material to happy
-            myRenderer.material = happyMat;
+            if (itemDesired == itemID)
+            {
+                // set want item = false
+                wantsItem = false;
+                // set material to happy
+                myRenderer.material = happyMat;
 
-            // start coroutine for wants item
-            //print("Starting " + Time.time + " seconds");
-            coroutine = WaitAndPrint(Random.Range(TempsMin, TempsMax));
-            StartCoroutine(coroutine);
-            //print("Coroutine started");
-            //print("Item Received");
+                // start coroutine for wants item
+                //print("Starting " + Time.time + " seconds");
+                coroutine = WaitAndPrint(Random.Range(TempsMin, TempsMax));
+                StartCoroutine(coroutine);
+                //print("Coroutine started");
+                //print("Item Received");
 
-            // return true
-            return true;
+                // return true
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
         // if not wants item 
         else
