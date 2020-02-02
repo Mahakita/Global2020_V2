@@ -15,9 +15,12 @@ public class Receiver : MonoBehaviour
     public Material happyMat;
     public Material wantMat;
 
+    public MeshRenderer ItemRenderer;
+
 
     public void Start()
     {
+        ItemRenderer.enabled = false;
         myRenderer = GetComponent<Renderer>();
 
         // start coroutine for wants item
@@ -39,6 +42,7 @@ public class Receiver : MonoBehaviour
         if (wantsItem == false)
         {
             wantsItem = true;
+            ItemRenderer.enabled = true;
             myRenderer.material = wantMat;
         }
     }
@@ -61,6 +65,7 @@ public class Receiver : MonoBehaviour
             {
                 // set want item = false
                 wantsItem = false;
+                ItemRenderer.enabled = false;
                 // set material to happy
                 myRenderer.material = happyMat;
 
@@ -74,11 +79,18 @@ public class Receiver : MonoBehaviour
                 // return true
                 return true;
             }
+            if (itemDesired == ItemType.Any)
+            {
+                wantsItem = false;
+                myRenderer.material = happyMat;
+                coroutine = WaitAndPrint(Random.Range(TempsMin, TempsMax));
+                StartCoroutine(coroutine);
+                return true;
+            }
             else
             {
                 return false;
             }
-            
         }
         // if not wants item 
         else

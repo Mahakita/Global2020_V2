@@ -11,6 +11,8 @@ public class PickUpper : MonoBehaviour
     ItemType heldItemID = ItemType.None;
 
     private bool holdsItem = false;
+    GameObject heldItem;
+
 
     void Update()
     {
@@ -32,8 +34,10 @@ public class PickUpper : MonoBehaviour
 
                         if (c.GetComponent<Receiver>().ReceiveItem(heldItemID))
                         {
-                            Destroy(transform.GetChild(0).gameObject);
+                            Destroy(heldItem.gameObject);
                             holdsItem = false;
+                            heldItem = null;
+                            return;
                         }
                         // CASE 2 : Receiver does not want Item -> Do Nothing
                         else
@@ -47,17 +51,17 @@ public class PickUpper : MonoBehaviour
                 {
                         //print("wanna drop");
                     //holditem to false
-                    Transform heldItem = transform.GetChild(0);
                     heldItem.transform.localPosition = new Vector3(0, -0.25f, -1f);
+                    print(heldItem.gameObject.name);
                     heldItem.GetComponent<Rigidbody>().useGravity = true;
                     // un-parent the item
                     heldItem.transform.parent = null;
-
                     holdsItem = false;
 
                     // reenable colision component on item
                     heldItem.GetComponent<BoxCollider>().enabled = true;
                     heldItem.GetComponent<Rigidbody>().isKinematic = false;
+                    heldItem = null;
 
                         //print(gameObject.name + " Drop Item");
                 }
@@ -71,14 +75,14 @@ public class PickUpper : MonoBehaviour
                     {
                         c.GetComponent<Rigidbody>().useGravity = false;
                         c.GetComponent<Rigidbody>().isKinematic = true;
-
+                        heldItem = c.gameObject;
 
                             //print(c.name + " Get Item");
                         holdsItem = true;
                         //what is held?
                         heldItemID = c.GetComponent<Item>().ItemID;
                         c.transform.parent = gameObject.transform;
-                        c.transform.localPosition = new Vector3(0, 0.75f, 0);
+                        c.transform.localPosition = new Vector3(1f, 0.5f, 0);
                         c.GetComponent<BoxCollider>().enabled = false;
                         return;
                     }
