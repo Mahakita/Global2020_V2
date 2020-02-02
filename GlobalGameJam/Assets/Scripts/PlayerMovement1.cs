@@ -10,6 +10,8 @@ public class PlayerMovement1 : MonoBehaviour
     public float gravity = 10f;
     private Vector3 moveDirection = Vector3.zero;
     bool isOverlappingLadder;
+
+    public Animator animator;
     
     void Start()
     {
@@ -26,6 +28,16 @@ public class PlayerMovement1 : MonoBehaviour
         }
         Vector3 movement = new Vector3(hAxis, vAxis, 0) * speed * Time.deltaTime;
         player.MovePosition(transform.position + movement);
+        
+
+
+        animator.SetFloat("hAxis", Math.Abs(hAxis));
+        animator.SetFloat("vAxis", vAxis);
+        animator.SetBool("isOverlappingLadder", isOverlappingLadder);
+
+        Vector3 rot = transform.eulerAngles;
+        transform.eulerAngles = new Vector3(rot.x, (hAxis < 0 ? 180 : 0), rot.z);
+        transform.eulerAngles = new Vector3(rot.x, (isOverlappingLadder ? -90:transform.eulerAngles.y ), rot.z);
     }
 
     private void OnTriggerEnter(Collider other)
