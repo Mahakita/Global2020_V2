@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_BasicEmissive 1
+  m_Name: MI_TurquoiseRoom
   m_Shader: {fileID: 4800000, guid: e95177b31ca4ecc489091018676db98c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -20,15 +20,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 1b222ce4bb05c624382a3f90c30d37e0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 055d5626238f7924fa73d52d28a1590c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Alpha1:
-        m_Texture: {fileID: 2800000, guid: 9ed06bee122eb954fb72f92dcc3b1b88, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5ff84948f8ea2af478697183392967a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: 3fbc7a2c615c0a8498df97ee36daf428, type: 3}
+        m_Texture: {fileID: 2800000, guid: 53ce896ab62be9647a20055047ec67c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -36,10 +36,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ColorIntensity: 0.77
+    - _ColorIntensity: -0.1
     - _Cutoff: 0.5
-    - _EmissiveIntensity: 0.68
+    - _EmissiveIntensity: 0.1
     - _Opacity: 0
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 0.3840972, g: 0, b: 0.4528302, a: 0}
+    - _Color: {r: 0.11764707, g: 0.6431373, b: 0.5465598, a: 0}
