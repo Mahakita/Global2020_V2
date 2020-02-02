@@ -79,11 +79,18 @@ public class Receiver : MonoBehaviour
                 // return true
                 return true;
             }
+            if (itemDesired == ItemType.Any)
+            {
+                wantsItem = false;
+                myRenderer.material = happyMat;
+                coroutine = WaitAndPrint(Random.Range(TempsMin, TempsMax));
+                StartCoroutine(coroutine);
+                return true;
+            }
             else
             {
                 return false;
             }
-            
         }
         // if not wants item 
         else
