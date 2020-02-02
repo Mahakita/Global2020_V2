@@ -33,6 +33,11 @@ public class PickUpper : MonoBehaviour
             if (other.GetComponent<Receiver>() && Input.GetKey(KeyCode.E))
             {
                 print(gameObject.name + " Drop Item");
+                // if receive Item returns true
+                    // remove Item
+
+                // if receive item = false
+                    // keep item
                 other.GetComponent<Receiver>().ReceiveItem();
                 holdsItem = false;
                 return;
