@@ -18,6 +18,7 @@ public class PickUpper : MonoBehaviour
             colliders = Physics.OverlapSphere(transform.position, 0.25f);
             print(colliders.Length);
 
+
             if (holdsItem)
             {
                 foreach (Collider c in colliders)
@@ -35,16 +36,16 @@ public class PickUpper : MonoBehaviour
                         {
                             // do nothing
                         }
-
-                        return;
                     }
                 }
+
                 // CASE 3 : No receiver found, Drop Item
                 {
+                    print("wanna drop");
                     //holditem to false
                     Transform heldItem = transform.GetChild(0);
-                    heldItem.transform.localPosition = new Vector3(-1, 0, 0);
-
+                    heldItem.transform.localPosition = new Vector3(0, -0.25f, -1f);
+                    heldItem.GetComponent<Rigidbody>().useGravity = true;
                     // un-parent the item
                     heldItem.transform.parent = null;
 
@@ -52,9 +53,10 @@ public class PickUpper : MonoBehaviour
 
                     // reenable colision component on item
                     heldItem.GetComponent<BoxCollider>().enabled = true;
+                    heldItem.GetComponent<Rigidbody>().isKinematic = false;
+
                     print(gameObject.name + " Drop Item");
                 }
-
             }
             else
             {
@@ -63,6 +65,10 @@ public class PickUpper : MonoBehaviour
                 {
                     if (c.GetComponent<Item>())
                     {
+                        c.GetComponent<Rigidbody>().useGravity = false;
+                        c.GetComponent<Rigidbody>().isKinematic = true;
+
+
                         print(c.name + " Get Item");
                         holdsItem = true;
                         c.transform.parent = gameObject.transform;
@@ -72,25 +78,49 @@ public class PickUpper : MonoBehaviour
                     }
                 }
             }
+            
+            
 
             print("No action taken");
 
+                    
         }
        
         /*
         
-        Si on appuie sur e
-            1) on check si on a un objet
-                On check si on trigger un bot
-                    si oui, on lui donne le shit
+        -Si on appuie sur e
+            -1) on check si on a un objet
+                -On check si on trigger un bot
+                  -  si oui, on lui donne le shit
 
-                    Si non, on drop
+                  -  Si non, on drop
 
-            on check si on est dans le trigger dun objet
-                si oui, on le grab
+          -  on check si on est dans le trigger dun objet
+             -   si oui, on le grab
 
 
 
          * */
     }
+    //void OnCollisionStay(Collision collision)
+    //{
+    //    if (holdsItem == true && Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        if (collision.gameObject.CompareTag("Floor"))
+    //        {
+    //            //holditem to false
+    //            Transform heldItem = transform.GetChild(0);
+    //            heldItem.transform.localPosition = new Vector3(0, -0.25f, 1f);
+
+    //            // un-parent the item
+    //            heldItem.transform.parent = null;
+
+    //            holdsItem = false;
+
+    //            // reenable colision component on item
+    //            heldItem.GetComponent<BoxCollider>().enabled = true;
+    //            print(gameObject.name + " Drop Item");
+    //        }
+    //    }
+    //}
 }
