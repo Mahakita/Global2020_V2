@@ -17,13 +17,13 @@ public class FloppyDiskDispenser : MonoBehaviour
             if (creationProgress >= 100f ) 
             {
                 FloppyDisk.GetComponent<BoxCollider>().enabled = true;               
-                Instantiate(FloppyDisk, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+                Instantiate(FloppyDisk, transform.position + new Vector3(0, 0, -1.5f), Quaternion.identity);
                 creationProgress = 0f;
             }
-            if (receiver.wantsItem == true)
-            {
-                Destroy(FloppyDisk);
-            }
+            //if (receiver.wantsItem == true)
+            //{
+            //    Destroy(FloppyDisk);
+            //}
         }
 
 

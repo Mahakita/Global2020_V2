@@ -17,7 +17,7 @@ public class FolderDispenser : MonoBehaviour
             if (creationProgress >= 100f)
             {
                 Folder.GetComponent<BoxCollider>().enabled = true;
-                Instantiate(Folder, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+                Instantiate(Folder, transform.position + new Vector3(0, 0, -1.5f), Quaternion.identity);
                 creationProgress = 0f;
             }
 

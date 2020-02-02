@@ -17,7 +17,7 @@ public class BookDispenser : MonoBehaviour
             if (creationProgress >= 100f)
             {
                 Book.GetComponent<BoxCollider>().enabled = true;
-                Instantiate(Book, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+                Instantiate(Book, transform.position + new Vector3(0, 0, -1.5f), Quaternion.identity);
                 creationProgress = 0f;
             }
 
