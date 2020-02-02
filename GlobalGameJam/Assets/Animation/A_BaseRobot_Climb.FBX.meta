@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 89f8129584435b540b18866bdedea659
+guid: 7ad701b36d9d243468774685c98ebf74
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: A_BaseRobot_Run
+    second: A_BaseRobot_Climb
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: A_BaseRobot_Run
+      name: A_BaseRobot_Climb
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -100,7 +100,7 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -117,7 +117,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 89f8129584435b540b18866bdedea659,
+    type: 3}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
