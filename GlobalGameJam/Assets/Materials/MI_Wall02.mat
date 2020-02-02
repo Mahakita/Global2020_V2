@@ -40,9 +40,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ColorIntensity: 0.3
+    - _ColorIntensity: 0.4
     - _Cutoff: 0.5
-    - _EmissiveIntensity: 0.38
+    - _EmissiveIntensity: 0
+    - _Float0: 1
+    - _Opacity: 0
+    - _OpacityINtensity: 1
     - _TransAmbient: 0.2
     - _TransDirect: 1
     - _TransNormalDistortion: 0.1
@@ -51,4 +54,4 @@ Material:
     - _Translucency: 1
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 0, g: 0.9820707, b: 1, a: 0}
+    - _Color: {r: 0, g: 0.55120516, b: 1, a: 0}

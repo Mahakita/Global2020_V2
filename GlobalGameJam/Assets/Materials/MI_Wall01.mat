@@ -42,7 +42,10 @@ Material:
     m_Floats:
     - _ColorIntensity: 0.53
     - _Cutoff: 0.5
-    - _EmissiveIntensity: 0.68
+    - _EmissiveIntensity: 0
+    - _Float0: 1
+    - _Opacity: 0
+    - _OpacityINtensity: 1
     - _TransAmbient: 0.2
     - _TransDirect: 1
     - _TransNormalDistortion: 0.1
