@@ -6,7 +6,7 @@ public class FloppyDiskDispenser : MonoBehaviour
 {
     public Receiver receiver;
     public GameObject FloppyDisk;
-    public BoxCollider FloppyDiskCollider;
+    //public BoxCollider FloppyDiskCollider;
     public float creationProgress;
     public float speed = 15f ;
     void Update()
@@ -16,8 +16,8 @@ public class FloppyDiskDispenser : MonoBehaviour
             creationProgress += speed * Time.deltaTime;
             if (creationProgress >= 100f ) 
             {
-                FloppyDisk.GetComponent<BoxCollider>().enabled = true;               
-                Instantiate(FloppyDisk, transform.position + new Vector3(0, 0, -1.5f), Quaternion.identity);
+                //FloppyDisk.GetComponent<BoxCollider>().enabled = true;               
+                Instantiate(FloppyDisk, transform.position + new Vector3(0, 0, -2f), Quaternion.identity);
                 creationProgress = 0f;
             }
             //if (receiver.wantsItem == true)
