@@ -6,9 +6,10 @@ public class BookDispenser : MonoBehaviour
 {
     public Receiver receiver;
     public GameObject Book;
-    public BoxCollider BookBoxCollider;
+    //public BoxCollider BookBoxCollider;
     public float creationProgress;
     public float speed = 10f;
+
     void Update()
     {
         if (receiver.wantsItem == false)
@@ -16,8 +17,8 @@ public class BookDispenser : MonoBehaviour
             creationProgress += speed * Time.deltaTime;
             if (creationProgress >= 100f)
             {
-                Book.GetComponent<BoxCollider>().enabled = true;
-                Instantiate(Book, transform.position + new Vector3(0, 0, -1.5f), Quaternion.identity);
+                //Book.GetComponent<BoxCollider>().enabled = true;
+                Instantiate(Book, transform.position + new Vector3(0, 0, -2f), Quaternion.identity);
                 creationProgress = 0f;
             }
 
