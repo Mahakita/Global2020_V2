@@ -21,18 +21,19 @@ Material:
     m_TexEnvs:
     - _Albedo:
         m_Texture: {fileID: 2800000, guid: 58188829a7f50db4cb7359071c23bb64, type: 3}
-        m_Scale: {x: 1, y: 2}
+        m_Scale: {x: 1, y: 3}
         m_Offset: {x: 0, y: 0}
     - _Normal:
         m_Texture: {fileID: 2800000, guid: d1804953c6a457942b1e80cad9d90757, type: 3}
-        m_Scale: {x: 1, y: 2}
+        m_Scale: {x: 1, y: 3}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _COlorIntensity: 6.05
     - _Float0: 3
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 1, g: 0.41492462, b: 0, a: 0}
+    - _Color0: {r: 1, g: 0.9479668, b: 0, a: 0}

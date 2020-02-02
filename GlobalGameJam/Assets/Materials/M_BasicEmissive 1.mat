@@ -39,6 +39,7 @@ Material:
     - _ColorIntensity: 0.77
     - _Cutoff: 0.5
     - _EmissiveIntensity: 0.68
+    - _Opacity: 0
     - __dirty: 0
     m_Colors:
     - _Color: {r: 0.3840972, g: 0, b: 0.4528302, a: 0}
