@@ -23,7 +23,9 @@ public class Dispenser : MonoBehaviour
                 if (creationProgress >= 100f)
                 {
                     //Folder.GetComponent<BoxCollider>().enabled = true;
-                    Instantiate(Item, transform.position + new Vector3(0, 0, -2f), Quaternion.identity);
+                    Vector3 spawnPos = transform.position;
+                    spawnPos.z = -2.5f;
+                    Instantiate(Item, spawnPos, Quaternion.identity);
                     creationProgress = 0f;
                 }
             }

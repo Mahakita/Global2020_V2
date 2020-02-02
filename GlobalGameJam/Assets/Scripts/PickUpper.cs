@@ -51,7 +51,7 @@ public class PickUpper : MonoBehaviour
                 {
                         //print("wanna drop");
                     //holditem to false
-                    heldItem.transform.localPosition = new Vector3(0, -0.25f, -1f);
+                    heldItem.transform.position = transform.position + new Vector3(0, -0.25f, -1f);
                     print(heldItem.gameObject.name);
                     heldItem.GetComponent<Rigidbody>().useGravity = true;
                     // un-parent the item
