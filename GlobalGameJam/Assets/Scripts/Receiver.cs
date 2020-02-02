@@ -10,11 +10,14 @@ public class Receiver : MonoBehaviour
     private IEnumerator coroutine;
     public float TempsMin = 15f;
     public float TempsMax = 25f;
-    Material m_Material;
+    Renderer renderer;
+    public Material happyMat;
+    public Material wantMat;
+
 
     public void Start()
     {
-        m_Material = GetComponent<Renderer>().material;
+        renderer = GetComponent<Renderer>();
 
         // start coroutine for wants item
         // - After 0 seconds, prints "Starting 0.0 seconds"
@@ -38,7 +41,7 @@ public class Receiver : MonoBehaviour
         if (wantsItem != true)
         {
             wantsItem = true;
-            m_Material.color = Color.red;
+            renderer.material = wantMat;
         }
     }
 
@@ -51,24 +54,24 @@ public class Receiver : MonoBehaviour
         {
             // set want item = false
             wantsItem = false;
-            m_Material.color = ;
-
-        }
             // set material to happy
+            renderer.material = happyMat;
+
             // start coroutine for wants item
+            print("Starting " + Time.time + " seconds");
+            coroutine = WaitAndPrint(Random.Range(TempsMin, TempsMax));
+            StartCoroutine(coroutine);
+
+            print("Coroutine started");
+            print("Item Received");
             // return true
-
+            return;
+        }
         // if not wants item 
+        else
+        {
             //return false
-        print("Item Received");
-
-
-
+            return;
+        }
     }
-
-
-    //coroutine
-        // wait random time amount
-        // wants Item= true
-        // set material to desire material
 }
