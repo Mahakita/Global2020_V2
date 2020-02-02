@@ -20,10 +20,10 @@ public class FloppyDiskDispenser : MonoBehaviour
                 Instantiate(FloppyDisk, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
                 creationProgress = 0f;
             }
-            if (receiver.wantsItem == true)
-            {
-                Destroy(FloppyDisk);
-            }
+            //if (receiver.wantsItem == true)
+            //{
+            //    Destroy(FloppyDisk);
+            //}
         }
 
 
