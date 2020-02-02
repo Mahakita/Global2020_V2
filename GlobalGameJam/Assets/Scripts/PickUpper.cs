@@ -25,6 +25,7 @@ public class PickUpper : MonoBehaviour
                 {
                     if (c.GetComponent<Receiver>())
                     {
+                        print("On veut donner lobjet au receiver");
                         // CASE 1 : Receiver wants Item -> Give Item to receiver
                         if (c.GetComponent<Receiver>().ReceiveItem())
                         {
